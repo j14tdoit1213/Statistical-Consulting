@@ -1,0 +1,2 @@
+data("Titanic")
+head(Titanic)
