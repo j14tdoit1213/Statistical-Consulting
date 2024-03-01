@@ -1,0 +1,43 @@
+---
+title: "My Report"
+date: today
+author: 李承祐
+format:
+ pdf:
+    include-in-header:
+      - text: |
+         \usepackage{setspace,relsize}
+mainfont: "Microsoft JhengHei UI"
+toc: true
+---
+# Dataset
+
+```{r}
+data <- read.csv("titanic.csv")
+head(data)
+```
+
+# Summary
+
+```{r}
+data$Survived <- as.factor(data$Survived)
+data$Pclass <- as.factor(data$Pclass)
+data$Sex <- as.factor(data$Sex)
+data$SibSp <- as.factor(data$SibSp)
+data$Parch <- as.factor(data$Parch)
+data$Embarked <- as.factor(data$Embarked)
+summary(data)
+```
+
+#plot
+
+```{r}
+barplot(table(data$Survived),ylab ="Frequency",main="Survived")
+barplot(table(data$Pclass),ylab ="Frequency",main="Pclass")
+barplot(table(data$Sex),ylab ="Frequency",main="Sex")
+hist(data$Age,xlab = "age",main="Age")
+barplot(table(data$SibSp),ylab ="Frequency",main="SibSp")
+barplot(table(data$Parch),ylab ="Frequency",main="Parch")
+barplot(table(data$Embarked),ylab ="Frequency",main="Embarked")
+```
+---
